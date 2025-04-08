@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("MySql");
 
 builder.Services.AddDbContext<AppDataContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
